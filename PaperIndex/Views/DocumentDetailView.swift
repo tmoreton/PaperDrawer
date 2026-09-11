@@ -18,6 +18,8 @@ struct DocumentDetailView: View {
     @State private var storageLocations: DocumentFileLocations?
     @State private var storageBrowserLocation: DocumentFileLocation?
     @State private var isExportingFiles = false
+    @State private var isPreparingShare = false
+    @State private var sharedDocument: SharedDocument?
     @State private var errorMessage: String?
 
     private var displayRecognizedText: String {
@@ -43,7 +45,23 @@ struct DocumentDetailView: View {
         .toolbarBackground(PaperIndexStyle.background, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                Button(action: shareDocument) {
+                    Group {
+                        if isPreparingShare {
+                            ProgressView()
+                                .controlSize(.small)
+                        } else {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.system(size: 17, weight: .semibold))
+                        }
+                    }
+                    .foregroundStyle(PaperIndexStyle.ink)
+                    .frame(width: 42, height: 42)
+                }
+                .disabled(isPreparingShare)
+                .accessibilityLabel(isPreparingShare ? "Preparing document to share" : "Share document")
+
                 DetailMoreMenu(
                     isOpeningFiles: isExportingFiles,
                     hasRecognizedText: !displayRecognizedText.isEmpty,
@@ -72,10 +90,22 @@ struct DocumentDetailView: View {
         .sheet(item: $storageBrowserLocation) { location in
             DocumentStorageBrowserView(directoryURL: location.url)
         }
+        .sheet(item: $sharedDocument) { sharedDocument in
+            DocumentShareSheet(fileURL: sharedDocument.url) {
+                self.sharedDocument = nil
+                DocumentShareService.removeTemporaryFile(at: sharedDocument.url)
+            }
+        }
         .task {
             exportFilesIfNeeded()
+
+            #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("-show-share-preview") {
+                shareDocument()
+            }
+            #endif
         }
-        .confirmationDialog("Delete from PaperIndex?", isPresented: $isDeleteConfirmationPresented, titleVisibility: .visible) {
+        .confirmationDialog("Delete from PaperDrawer?", isPresented: $isDeleteConfirmationPresented, titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
                 deleteDocument()
             }
@@ -84,7 +114,7 @@ struct DocumentDetailView: View {
         } message: {
             Text("Exported copies in Files are left in place.")
         }
-        .alert("PaperIndex", isPresented: errorAlertBinding) {
+        .alert("PaperDrawer", isPresented: errorAlertBinding) {
             Button("OK", role: .cancel) {}
         } message: {
             Text(errorMessage ?? "")
@@ -323,7 +353,7 @@ struct DocumentDetailView: View {
         } catch {
             modelContext.rollback()
             refreshStorageLocations()
-            errorMessage = "PaperIndex could not write the Files copies: \(error.localizedDescription)"
+            errorMessage = "PaperDrawer could not write the Files copies: \(error.localizedDescription)"
         }
     }
 
@@ -344,7 +374,7 @@ struct DocumentDetailView: View {
         }
 
         guard let location = storageLocations?.iCloud ?? storageLocations?.local else {
-            errorMessage = "PaperIndex could not find the exported Files folder."
+            errorMessage = "PaperDrawer could not find the exported Files folder."
             return
         }
 
@@ -375,6 +405,28 @@ struct DocumentDetailView: View {
         }
     }
 
+    private func shareDocument() {
+        guard !isPreparingShare else {
+            return
+        }
+
+        isPreparingShare = true
+
+        Task { @MainActor in
+            await Task.yield()
+
+            do {
+                let package = DocumentFileStore.exportPackage(for: document)
+                let fileURL = try DocumentShareService.createPDF(from: package)
+                sharedDocument = SharedDocument(url: fileURL)
+            } catch {
+                errorMessage = "PaperDrawer could not prepare this document to share: \(error.localizedDescription)"
+            }
+
+            isPreparingShare = false
+        }
+    }
+
     private func deleteDocument() {
         do {
             modelContext.delete(document)
@@ -384,6 +436,32 @@ struct DocumentDetailView: View {
             modelContext.rollback()
             errorMessage = error.localizedDescription
         }
+    }
+}
+
+private struct SharedDocument: Identifiable {
+    let id = UUID()
+    let url: URL
+}
+
+private struct DocumentShareSheet: UIViewControllerRepresentable {
+    let fileURL: URL
+    let completion: () -> Void
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        let controller = UIActivityViewController(
+            activityItems: [fileURL],
+            applicationActivities: nil
+        )
+
+        controller.completionWithItemsHandler = { _, _, _, _ in
+            completion()
+        }
+
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
     }
 }
 

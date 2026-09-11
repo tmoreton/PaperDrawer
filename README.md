@@ -1,14 +1,14 @@
-# PaperIndex
+# PaperDrawer
 
 **A private, searchable document scanner for iPhone and iPad.**
 
-[Website](https://tmoreton.github.io/PaperIndex/) · [Privacy](https://tmoreton.github.io/PaperIndex/privacy/) · [Terms](https://tmoreton.github.io/PaperIndex/terms/)
+[Website](https://getpaperdrawer.com/) · [Privacy](https://getpaperdrawer.com/privacy/) · [Terms](https://getpaperdrawer.com/terms/)
 
-PaperIndex turns receipts, statements, forms, and notes into a calm, searchable archive. It captures pages with Apple's document camera, recognizes their text on-device, organizes them, and writes understandable copies to Files.
+PaperDrawer turns receipts, statements, forms, and notes into a calm, searchable archive. It captures pages with Apple's document camera, recognizes their text on-device, organizes them, and writes understandable copies to Files.
 
 ## Privacy at a glance
 
-PaperIndex does not operate a server and does not include analytics, advertising, tracking, or third-party SDKs. It does not create an account or send scans, recognized text, or document metadata to the PaperIndex developers.
+PaperDrawer does not operate a server and does not include analytics, advertising, tracking, or third-party SDKs. It does not create an account or send scans, recognized text, or document metadata to the PaperDrawer developers.
 
 - Scanning uses Apple's native `VisionKit` document camera.
 - OCR uses Apple's `Vision` framework on the device.
@@ -17,9 +17,9 @@ PaperIndex does not operate a server and does not include analytics, advertising
 - Documents are stored in the app's SwiftData library and exported to Files.
 - When the user enables iCloud, Apple may sync the private SwiftData store through CloudKit and Files copies through the user's private iCloud Drive account.
 
-In short: **document processing stays on the device, and no document data is sent to a PaperIndex-controlled service.** Optional iCloud syncing is handled by Apple under the user's Apple Account settings.
+In short: **document processing stays on the device, and no document data is sent to a PaperDrawer-controlled service.** Optional iCloud syncing is handled by Apple under the user's Apple Account settings.
 
-See the full [Privacy Policy](https://tmoreton.github.io/PaperIndex/privacy/) for storage and deletion details.
+See the full [Privacy Policy](https://getpaperdrawer.com/privacy/) for storage and deletion details.
 
 ## What it does
 
@@ -31,7 +31,7 @@ See the full [Privacy Policy](https://tmoreton.github.io/PaperIndex/privacy/) fo
 
 ## Technology
 
-| Technology | How PaperIndex uses it |
+| Technology | How PaperDrawer uses it |
 | --- | --- |
 | Swift 5 and SwiftUI | Native app structure and accessible interface |
 | VisionKit | Multi-page document capture and automatic page cropping |
@@ -57,7 +57,7 @@ Camera
                  └─> optional private iCloud sync controlled by the user
 ```
 
-PaperIndex contains no application networking layer. Apple system frameworks may communicate with iCloud only when the user has enabled the relevant iCloud services.
+PaperDrawer contains no application networking layer. Apple system frameworks may communicate with iCloud only when the user has enabled the relevant iCloud services.
 
 ## Requirements
 
@@ -78,7 +78,7 @@ xcodebuild \
   build
 ```
 
-The Xcode project, target, product, and source use the PaperIndex name. The original bundle, iCloud container, and SwiftData store identifiers remain unchanged so updates keep the same App Store identity and existing user data.
+The customer-facing product name is PaperDrawer. The original Xcode project, target, bundle, iCloud container, and SwiftData store identifiers intentionally remain unchanged so updates keep the same App Store identity and existing user data.
 
 ## Project structure
 

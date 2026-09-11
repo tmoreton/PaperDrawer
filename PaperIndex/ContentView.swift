@@ -127,12 +127,14 @@ struct ContentView: View {
                 )
                 .ignoresSafeArea()
             }
-            .alert("PaperIndex", isPresented: errorAlertBinding) {
+            .alert("PaperDrawer", isPresented: errorAlertBinding) {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text(errorMessage ?? "")
             }
             .task {
+                DocumentFileStore.migrateLegacyArchivesIfNeeded()
+
                 #if DEBUG
                 DebugPreviewData.seedIfRequested(in: modelContext)
                 configurePreviewStateIfRequested()
@@ -311,7 +313,7 @@ struct ContentView: View {
             )
         } catch {
             modelContext.rollback()
-            errorMessage = "The scan was saved, but PaperIndex could not write the Files copies: \(error.localizedDescription)"
+            errorMessage = "The scan was saved, but PaperDrawer could not write the Files copies: \(error.localizedDescription)"
         }
     }
 

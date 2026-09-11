@@ -1,16 +1,16 @@
-# PaperIndex App Store submission assets
+# PaperDrawer App Store submission assets
 
-This folder contains the English (U.S.) product-page copy and simulator screenshots for PaperIndex 1.1.
+This folder contains the English (U.S.) product-page copy and simulator screenshots for PaperDrawer 1.1.
 
 ## Screenshot sets
 
-Upload the numbered files in order. Every image is a JPEG without transparency and shows the real PaperIndex app running with fictional demo documents.
+Upload the numbered files in order. Every image is a JPEG without transparency and shows the real PaperDrawer app running with fictional demo documents.
 
 | Folder | Resolution | App Store Connect use |
 | --- | --- | --- |
 | `assets/screenshots/iphone-6.9/` | 1320 × 2868 portrait | Current 6.9-inch iPhone display slot |
 | `assets/screenshots/iphone-6.5/` | 1284 × 2778 portrait | 6.5-inch iPhone display slot; also matches the requested accepted size |
-| `assets/screenshots/ipad-13/` | 2064 × 2752 portrait | Required 13-inch iPad display slot because PaperIndex supports iPad |
+| `assets/screenshots/ipad-13/` | 2064 × 2752 portrait | Required 13-inch iPad display slot because PaperDrawer supports iPad |
 
 The six screenshots cover:
 

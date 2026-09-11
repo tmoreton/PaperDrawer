@@ -1,16 +1,16 @@
-# PaperIndex — App Store metadata
+# PaperDrawer — App Store metadata
 
 ## Product page
 
-- **Name:** PaperIndex
+- **Name:** PaperDrawer
 - **Subtitle:** Private document scanner
 - **Primary category:** Productivity
 - **Secondary category:** Utilities
-- **Marketing URL:** https://tmoreton.github.io/PaperIndex/
-- **Support URL:** https://github.com/tmoreton/PaperIndex/issues
-- **Privacy Policy URL:** https://tmoreton.github.io/PaperIndex/privacy/
-- **Terms of Use URL:** https://tmoreton.github.io/PaperIndex/terms/
-- **Copyright:** Enter the individual or legal entity that owns PaperIndex before submission.
+- **Marketing URL:** https://getpaperdrawer.com/
+- **Support URL:** https://github.com/tmoreton/PaperDrawer/issues
+- **Privacy Policy URL:** https://getpaperdrawer.com/privacy/
+- **Terms of Use URL:** https://getpaperdrawer.com/terms/
+- **Copyright:** Enter the individual or legal entity that owns PaperDrawer before submission.
 
 ## Promotional text
 
@@ -18,13 +18,13 @@ Turn receipts, statements, forms, and notes into a private searchable archive—
 
 ## Description
 
-PaperIndex turns paper into a private, searchable archive on iPhone and iPad.
+PaperDrawer turns paper into a private, searchable archive on iPhone and iPad.
 
-Scan receipts, statements, forms, letters, and notes with Apple's native document camera. PaperIndex recognizes the text on your device, creates useful document details, and makes every saved page easy to find again.
+Scan receipts, statements, forms, letters, and notes with Apple's native document camera. PaperDrawer recognizes the text on your device, creates useful document details, and makes every saved page easy to find again.
 
 PRIVATE BY DESIGN
 
-Document scanning, OCR, organization, and search happen on your device. PaperIndex has no account, advertising, analytics, tracking, or developer-operated document server.
+Document scanning, OCR, organization, and search happen on your device. PaperDrawer has no account, advertising, analytics, tracking, or developer-operated document server.
 
 SEARCH THE PAGE, NOT JUST THE TITLE
 
@@ -32,11 +32,11 @@ Find documents using words that appear anywhere in the recognized text, as well 
 
 KNOW WHERE EVERY COPY LIVES
 
-PaperIndex clearly shows when a document is searchable and when its Files copy has been created. Each export includes the scanned page images, recognized text, and useful document information.
+PaperDrawer clearly shows when a document is searchable and when its Files copy has been created. Each export includes the scanned page images, recognized text, and useful document information.
 
 BUILT FOR APPLE DEVICES
 
-PaperIndex uses native Apple frameworks for document capture, on-device text recognition, storage, and optional private iCloud sync. No third-party runtime SDKs are included.
+PaperDrawer uses native Apple frameworks for document capture, on-device text recognition, storage, and optional private iCloud sync. No third-party runtime SDKs are included.
 
 Optional iCloud features are controlled by your Apple Account settings and handled by Apple. OCR results can contain mistakes, so compare important information with the original document.
 
@@ -46,9 +46,9 @@ document scanner,OCR,receipts,files,search,paper,archive,statements,privacy
 
 ## App Review notes
 
-PaperIndex does not require an account or sign-in. Tap **Scan** and capture any printed page to exercise the main flow. Live document capture requires a physical iPhone or iPad camera.
+PaperDrawer does not require an account or sign-in. Tap **Scan** and capture any printed page to exercise the main flow. Live document capture requires a physical iPhone or iPad camera.
 
-After capture, OCR runs on-device. The app saves the searchable library record and writes JPEG page images, `OCR Text.txt`, and `Document Info.txt` to its Files container. If the review device has iCloud Drive enabled for PaperIndex, it also writes a copy there.
+After capture, OCR runs on-device. The app saves the searchable library record and writes JPEG page images, `OCR Text.txt`, and `Document Info.txt` to its Files container. If the review device has iCloud Drive enabled for PaperDrawer, it also writes a copy there.
 
 There are no purchases, subscriptions, ads, analytics, external AI APIs, or developer-operated backend services.
 
@@ -56,10 +56,10 @@ There are no purchases, subscriptions, ads, analytics, external AI APIs, or deve
 
 Based on the current source and Apple's definition of collection:
 
-- **Data collection:** No, PaperIndex does not collect data from this app.
+- **Data collection:** No, PaperDrawer does not collect data from this app.
 - **Tracking:** No.
-- **Privacy Policy URL:** https://tmoreton.github.io/PaperIndex/privacy/
-- **User Privacy Choices URL:** https://tmoreton.github.io/PaperIndex/privacy/#retention-and-deletion (optional)
+- **Privacy Policy URL:** https://getpaperdrawer.com/privacy/
+- **User Privacy Choices URL:** https://getpaperdrawer.com/privacy/#retention-and-deletion (optional)
 
 Apple states that data processed only on-device is not “collected,” and developers are not responsible for disclosing data collected by Apple. Reconfirm these answers if networking, analytics, crash reporting, or third-party SDKs are added.
 
@@ -74,6 +74,6 @@ Apple states that data processed only on-device is not “collected,” and deve
 - [x] Privacy manifest declaring no collection/tracking and the app-local UserDefaults reason
 - [x] Encryption declaration included in the app Info.plist
 - [ ] Enter the correct copyright owner in App Store Connect
-- [ ] Select build 1.1 (4) for the App Store version after Apple finishes processing it
+- [ ] Select PaperDrawer build 1.1 (6) for the App Store version after Apple finishes processing it
 - [ ] Complete age rating, content rights, pricing/availability, and export-compliance questions in App Store Connect
 - [ ] Choose and add the project's open-source license

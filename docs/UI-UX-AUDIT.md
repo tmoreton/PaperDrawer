@@ -1,4 +1,4 @@
-# PaperIndex UI/UX audit
+# PaperDrawer UI/UX audit
 
 Audited and rebuilt September 4, 2026.
 
@@ -9,11 +9,11 @@ The core flow is intentionally short:
 1. Open the searchable document archive.
 2. Start a scan from one primary blue action.
 3. Capture pages in Apple's document camera.
-4. Wait while PaperIndex recognizes text and creates Files copies.
+4. Wait while PaperDrawer recognizes text and creates Files copies.
 5. See an explicit saved confirmation.
 6. Open a document to review its pages, recognized text, and Files status.
 
-The capture experience is provided by VisionKit. The PaperIndex-specific experience begins in the archive and resumes when the system scanner closes.
+The capture experience is provided by VisionKit. The PaperDrawer-specific experience begins in the archive and resumes when the system scanner closes.
 
 ## Findings before the rebuild
 

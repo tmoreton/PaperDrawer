@@ -25,7 +25,7 @@ struct PaperIndexApp: App {
         do {
             return try ModelContainer(for: schema, configurations: [configuration])
         } catch {
-            fatalError("Unable to create PaperIndex model container: \(error)")
+            fatalError("Unable to create PaperDrawer model container: \(error)")
         }
     }()
 

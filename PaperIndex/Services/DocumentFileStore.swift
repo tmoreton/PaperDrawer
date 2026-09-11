@@ -71,8 +71,17 @@ struct DocumentFileLocations: Sendable {
 }
 
 enum DocumentFileStore {
-    static let archiveFolderName = "PaperIndex Archive"
+    static let archiveFolderName = "PaperDrawer Archive"
     static let iCloudContainerIdentifier = "iCloud.reactnativenerd.DocScan"
+    private static let legacyArchiveFolderName = "PaperIndex Archive"
+
+    static func migrateLegacyArchivesIfNeeded() {
+        try? migrateLegacyArchive(in: localDocumentsURL)
+
+        if let iCloudDocumentsURL {
+            try? migrateLegacyArchive(in: iCloudDocumentsURL)
+        }
+    }
 
     static func ensureFolderName(for document: ScannedDocument) -> String {
         if document.fileStorageFolderName.isEmpty {
@@ -119,19 +128,23 @@ enum DocumentFileStore {
     }
 
     static func availableLocations(folderName: String) -> DocumentFileLocations {
+        migrateLegacyArchivesIfNeeded()
+
         let localFilesTitle = UIDevice.current.userInterfaceIdiom == .pad ? "On My iPad" : "On My iPhone"
+        let localArchiveURL = archiveRootURL(in: localDocumentsURL, folderName: folderName)
         let local = DocumentFileLocation(
             kind: .local,
             url: localArchiveURL.appendingPathComponent(folderName, isDirectory: true),
-            displayPath: "Files > \(localFilesTitle) > PaperIndex > \(archiveFolderName) > \(folderName)",
+            displayPath: "Files > \(localFilesTitle) > PaperDrawer > \(localArchiveURL.lastPathComponent) > \(folderName)",
             persistenceNote: "Visible while the app is installed. iOS removes this copy if the app is deleted."
         )
 
-        let iCloud = iCloudArchiveURL.map { rootURL in
-            DocumentFileLocation(
+        let iCloud = iCloudDocumentsURL.map { documentsURL in
+            let rootURL = archiveRootURL(in: documentsURL, folderName: folderName)
+            return DocumentFileLocation(
                 kind: .iCloud,
                 url: rootURL.appendingPathComponent(folderName, isDirectory: true),
-                displayPath: "Files > iCloud Drive > PaperIndex > \(archiveFolderName) > \(folderName)",
+                displayPath: "Files > iCloud Drive > PaperDrawer > \(rootURL.lastPathComponent) > \(folderName)",
                 persistenceNote: "This is the durable Files copy when iCloud Drive is enabled."
             )
         }
@@ -151,17 +164,65 @@ enum DocumentFileStore {
         return "\(datePart)-\(titlePart)-\(idPart)"
     }
 
-    private static var localArchiveURL: URL {
+    private static var localDocumentsURL: URL {
         FileManager.default
             .urls(for: .documentDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent(archiveFolderName, isDirectory: true)
     }
 
-    private static var iCloudArchiveURL: URL? {
+    private static var iCloudDocumentsURL: URL? {
         FileManager.default
             .url(forUbiquityContainerIdentifier: iCloudContainerIdentifier)?
             .appendingPathComponent("Documents", isDirectory: true)
-            .appendingPathComponent(archiveFolderName, isDirectory: true)
+    }
+
+    private static func archiveRootURL(in documentsURL: URL, folderName: String) -> URL {
+        let currentURL = documentsURL.appendingPathComponent(archiveFolderName, isDirectory: true)
+        let currentDocumentURL = currentURL.appendingPathComponent(folderName, isDirectory: true)
+        if FileManager.default.fileExists(atPath: currentDocumentURL.path) {
+            return currentURL
+        }
+
+        let legacyURL = documentsURL.appendingPathComponent(legacyArchiveFolderName, isDirectory: true)
+        let legacyDocumentURL = legacyURL.appendingPathComponent(folderName, isDirectory: true)
+        if FileManager.default.fileExists(atPath: legacyDocumentURL.path) {
+            return legacyURL
+        }
+
+        return currentURL
+    }
+
+    private static func migrateLegacyArchive(in documentsURL: URL) throws {
+        let fileManager = FileManager.default
+        let legacyURL = documentsURL.appendingPathComponent(legacyArchiveFolderName, isDirectory: true)
+        guard fileManager.fileExists(atPath: legacyURL.path) else {
+            return
+        }
+
+        let currentURL = documentsURL.appendingPathComponent(archiveFolderName, isDirectory: true)
+        guard fileManager.fileExists(atPath: currentURL.path) else {
+            try fileManager.moveItem(at: legacyURL, to: currentURL)
+            return
+        }
+
+        for legacyItemURL in try fileManager.contentsOfDirectory(
+            at: legacyURL,
+            includingPropertiesForKeys: nil
+        ) {
+            let destinationURL = currentURL.appendingPathComponent(
+                legacyItemURL.lastPathComponent,
+                isDirectory: legacyItemURL.hasDirectoryPath
+            )
+
+            guard !fileManager.fileExists(atPath: destinationURL.path) else {
+                continue
+            }
+
+            try fileManager.moveItem(at: legacyItemURL, to: destinationURL)
+        }
+
+        if try fileManager.contentsOfDirectory(atPath: legacyURL.path).isEmpty {
+            try fileManager.removeItem(at: legacyURL)
+        }
     }
 
     private static func write(_ package: DocumentFileExportPackage, to folderURL: URL) throws {
@@ -197,7 +258,7 @@ enum DocumentFileStore {
         Document ID: \(package.id.uuidString)
 
         This folder contains the exported scan image files and the recognized OCR text.
-        PaperIndex's internal SwiftData and CloudKit record is separate from these user-visible files.
+        PaperDrawer's internal SwiftData and CloudKit record is separate from these user-visible files.
         """
     }
 
