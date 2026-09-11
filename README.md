@@ -87,7 +87,7 @@ Official PaperDrawer releases are intended to be sold as a one-time App Store pu
 
 The source remains publicly inspectable and developers may build it under the repository license. Official App Store builds provide the signed production binary, the PaperDrawer branding, automatic App Store updates, and official support. Future GitHub releases must not attach the same signed production binary distributed through the App Store; source archives or clearly identified development artifacts may remain available.
 
-PaperDrawer's existing App Store record is Apple ID `6808849656`. Version 1.1 (build 6) was uploaded successfully on September 10, 2026, and the planned U.S. price for the paid generation is **$19 as a one-time purchase**. Pricing can be scheduled independently of the next binary. Activate the public App Store link only after Apple publishes the listing; other storefront prices are determined by App Store Connect.
+PaperDrawer's existing App Store record is Apple ID `6808849656`. The earlier 1.1 (build 6) submission was removed from review, and version 1.2 (build 7) was uploaded, processed, and attached to the replacement version record on September 11, 2026. Its configured U.S. price is **$19 as a one-time purchase**; App Store Connect determines the comparable prices in other storefronts. Activate the public App Store link only after Apple publishes the listing.
 
 Create the archive and exported release with:
 

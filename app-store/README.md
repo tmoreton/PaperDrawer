@@ -1,8 +1,8 @@
 # PaperDrawer App Store submission assets
 
-This folder contains the English (U.S.) product-page copy and final simulator screenshots for PaperDrawer 1.2. The 6.9-inch iPhone and 13-inch iPad sets reflect the final 1.2 interface and are ready for upload after the remaining signed-device checks.
+This folder contains the English (U.S.) product-page copy and final simulator screenshots for PaperDrawer 1.2. The 6.9-inch iPhone and 13-inch iPad sets reflect the final 1.2 interface and were uploaded to App Store Connect on September 11, 2026.
 
-The planned U.S. base price is **$19 as a one-time purchase**. App Store Connect should generate the localized storefront prices from that base price. The existing app record is Apple ID `6808849656`; its public URL will be `https://apps.apple.com/app/id6808849656` after Apple publishes the listing.
+The configured U.S. base price is **$19 as a one-time purchase**. App Store Connect generates the localized storefront prices from that base price. The existing app record is Apple ID `6808849656`; its public URL will be `https://apps.apple.com/app/id6808849656` after Apple publishes the listing.
 
 ## Screenshot sets
 

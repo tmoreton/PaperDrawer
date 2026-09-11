@@ -20,7 +20,7 @@ Audited September 11, 2026 for PaperDrawer 1.2 (build 7).
 | Terms | https://getpaperdrawer.com/terms/ |
 | App Store ID | `6808849656` |
 | App Store URL | https://apps.apple.com/app/id6808849656 (available after Apple publishes the listing) |
-| Planned U.S. price | $19, one-time purchase |
+| Configured U.S. price | $19, one-time purchase |
 | First-party backend | None |
 
 The customer-facing name is PaperDrawer. The PaperIndex project/target name and the original DocScan identifiers are intentionally preserved for App Store continuity and access to existing app, SwiftData, Files, and iCloud data.
@@ -61,7 +61,7 @@ The static marketing, privacy, terms, and support pages are hosted by GitHub Pag
 
 ## Commercial distribution and GitHub
 
-The intended official distribution is a paid-up-front App Store application at a planned U.S. base price of $19, with no in-app purchase or subscription. Ordinary entitlement comes from the customer's Apple Account and App Store purchase; no StoreKit integration is needed for the app's current local features.
+The intended official distribution is a paid-up-front App Store application at a configured U.S. base price of $19, with no in-app purchase or subscription. Ordinary entitlement comes from the customer's Apple Account and App Store purchase; no StoreKit integration is needed for the app's current local features.
 
 Public source remains available under `LICENSE`. Developers can build it subject to that license, but on-device builds outside the official team need their own signing, bundle, and iCloud container configuration. Apple entitlement signing prevents self-built apps from accessing the official private iCloud container. Official branding, signed production binaries, automatic App Store updates, and support are separate from the source license.
 
@@ -105,16 +105,16 @@ The app currently relies on SwiftData's automatic migration and has no explicit 
 
 Repository-side metadata, icons, privacy manifest, camera purpose text, ownership records, URLs, and Debug/Release configurations are present. The following external steps remain before sale:
 
-1. Verify Apple's current Paid Apps Agreement and tax/banking details are active. A successful free-app upload does not by itself confirm paid-app financial readiness.
-2. Apply the selected $19 U.S. base price, then choose the tax category, territories, availability date, manual/automatic/phased release option, age rating, content-rights answers, and export-compliance answers. Complete Digital Services Act trader status for applicable EU distribution, answer the regulated-medical-device question as **No** unless the product scope changes, and leave App Store Connect's custom EULA field empty so Apple's Standard EULA applies.
-3. The public support and App Review email is confirmed as `tmoreton89@gmail.com`. Add a monitored international-format phone number to App Review Information, then publish the new support/policy/site revisions before uploading the app. The repository change alone does not make `https://getpaperdrawer.com/support/` live.
+1. **Completed September 11, 2026:** Verified the Paid Apps Agreement, banking, tax forms, and Digital Services Act compliance are active in App Store Connect. The developer is identified as a non-trader for this app.
+2. **Completed September 11, 2026:** Configured the $19 U.S. base price, all 175 territories, the App Store software tax category, and manual release. Reconfirmed the 4+ age rating, no-third-party-content answer, export-compliance declaration, and Apple Standard EULA. The regulated-medical-device declaration is not required for the current Productivity category and 4+ rating.
+3. **Completed September 11, 2026:** Entered the confirmed App Review contact details and published the marketing, privacy, support, and terms pages. All four live pages return HTTP 200.
 4. When PaperDrawer is live, activate the website's primary CTA with `https://apps.apple.com/app/id6808849656`. Add a separate Productivity Bundle URL only after that bundle is live; until then keep the bundle CTA disabled or label it as coming soon.
 5. Deploy and verify the SwiftData schema for `iCloud.reactnativenerd.DocScan` in CloudKit Production.
 6. **Completed September 11, 2026:** Push Notifications are enabled on the existing App ID, Xcode regenerated the managed development and App Store profiles, and the exported 1.2 (7) build contains production `aps-environment`, CloudKit Production, and `get-task-allow` disabled.
-7. Decide how the submitted 1.1 (6) should complete. If it finishes review first, upload PaperDrawer 1.2 (7) as the next version. If it must be replaced within the existing 1.1 version record, withdraw that submission and produce a 1.1 (7) replacement instead of uploading the current 1.2 binary. In either path, use the existing App Store record `6808849656`.
-8. Confirm App Store Connect does not offer this build as an iPhone/iPad-compatible app on Apple-silicon Mac or Apple Vision Pro. The project now disables both untested compatibility modes.
+7. **Completed September 11, 2026:** Removed 1.1 (6) from review, changed the replacement version record to 1.2, and attached processed build 7 on the existing App Store record `6808849656`.
+8. **Completed September 11, 2026:** Confirmed App Store Connect does not offer the app on Apple-silicon Mac or Apple Vision Pro. The project disables both untested compatibility modes.
 9. Test local Files and iCloud Drive behavior plus create/edit/delete sync on two signed physical devices.
-10. Upload the supplied final 6.9-inch iPhone and 13-inch iPad screenshot sets and verify their order in App Store Connect; the 6.5-inch files are retained only as legacy references.
+10. **Completed September 11, 2026:** Uploaded the supplied final 6.9-inch iPhone and 13-inch iPad screenshot sets and verified their order in App Store Connect; the 6.5-inch files are retained only as legacy references.
 11. Confirm Yaprflow ($29), Screencast.to ($29), and PaperDrawer ($19) are owned in the same App Store Connect account, which is required to select them for one multi-app bundle.
 12. When every member app is paid and Ready for Distribution, create the App Store multi-app bundle and keep each app individually available. Set the paid bundle price at least as high as its highest-priced member ($29) and below the $77 sum of the individual prices.
 
