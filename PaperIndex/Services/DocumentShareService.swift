@@ -10,6 +10,10 @@ enum DocumentShareService {
     private static let pageBounds = CGRect(x: 0, y: 0, width: 612, height: 792)
     private static let pageMargin: CGFloat = 24
 
+    static func removeStaleTemporaryFiles() {
+        try? FileManager.default.removeItem(at: sharingRootURL)
+    }
+
     static func createPDF(from package: DocumentFileExportPackage) throws -> URL {
         guard !package.pages.isEmpty else {
             throw DocumentShareError.noPages
@@ -47,18 +51,22 @@ enum DocumentShareService {
             }
         }
 
-        let directoryURL = FileManager.default.temporaryDirectory
-            .appendingPathComponent("PaperDrawer Shares", isDirectory: true)
+        let directoryURL = sharingRootURL
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
         try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
 
         let fileURL = directoryURL.appendingPathComponent(fileName(for: package.title))
-        try pdfData.write(to: fileURL, options: .atomic)
+        try pdfData.write(to: fileURL, options: [.atomic, .completeFileProtection])
         return fileURL
     }
 
     static func removeTemporaryFile(at fileURL: URL) {
         try? FileManager.default.removeItem(at: fileURL.deletingLastPathComponent())
+    }
+
+    private static var sharingRootURL: URL {
+        FileManager.default.temporaryDirectory
+            .appendingPathComponent("PaperDrawer Shares", isDirectory: true)
     }
 
     private static func aspectFitRect(contentSize: CGSize, container: CGRect) -> CGRect {

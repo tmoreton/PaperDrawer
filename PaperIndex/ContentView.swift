@@ -14,7 +14,6 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \ScannedDocument.createdAt, order: .reverse) private var documents: [ScannedDocument]
 
-    @AppStorage("hasPresentedInitialScanner") private var hasPresentedInitialScanner = false
     @State private var searchText = ""
     @State private var selectedCategory: DocumentCategory = .all
     @State private var navigationPath: [UUID] = []
@@ -140,7 +139,6 @@ struct ContentView: View {
                 configurePreviewStateIfRequested()
                 openPreviewDetailIfRequested()
                 #endif
-                presentInitialScannerIfNeeded()
             }
         }
         .preferredColorScheme(.light)
@@ -227,17 +225,6 @@ struct ContentView: View {
             return
         }
 
-        isScannerPresented = true
-    }
-
-    private func presentInitialScannerIfNeeded() {
-        guard !hasPresentedInitialScanner,
-              documents.isEmpty,
-              VNDocumentCameraViewController.isSupported else {
-            return
-        }
-
-        hasPresentedInitialScanner = true
         isScannerPresented = true
     }
 

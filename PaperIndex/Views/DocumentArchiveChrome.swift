@@ -16,13 +16,13 @@ struct DocumentArchiveHeader: View {
             if dynamicTypeSize.isAccessibilitySize {
                 VStack(alignment: .leading, spacing: 16) {
                     title
-                    ArchiveScanButton(action: onScan)
+                    actions
                 }
             } else {
                 HStack(alignment: .center, spacing: 16) {
                     title
                     Spacer(minLength: 8)
-                    ArchiveScanButton(action: onScan)
+                    actions
                 }
             }
         }
@@ -42,6 +42,13 @@ struct DocumentArchiveHeader: View {
             Text(documentCount == 0 ? "Your searchable archive" : "\(documentCount) saved and searchable")
                 .font(.subheadline)
                 .foregroundStyle(PaperIndexStyle.secondaryInk)
+        }
+    }
+
+    private var actions: some View {
+        HStack(spacing: 8) {
+            PaperDrawerInformationMenu()
+            ArchiveScanButton(action: onScan)
         }
     }
 }
@@ -253,6 +260,44 @@ struct ArchiveScanButton: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel("Scan document")
+    }
+}
+
+private struct PaperDrawerInformationMenu: View {
+    private static let privacyURL = URL(string: "https://getpaperdrawer.com/privacy/")!
+    private static let supportURL = URL(string: "https://getpaperdrawer.com/support/")!
+    private static let termsURL = URL(string: "https://getpaperdrawer.com/terms/")!
+    private static let sourceURL = URL(string: "https://github.com/tmoreton/PaperDrawer")!
+
+    var body: some View {
+        Menu {
+            Link(destination: Self.privacyURL) {
+                Label("Privacy Policy", systemImage: "hand.raised")
+            }
+
+            Link(destination: Self.supportURL) {
+                Label("Support", systemImage: "questionmark.circle")
+            }
+
+            Link(destination: Self.termsURL) {
+                Label("Terms of Use", systemImage: "doc.text")
+            }
+
+            Link(destination: Self.sourceURL) {
+                Label("Inspect the Source", systemImage: "chevron.left.forwardslash.chevron.right")
+            }
+        } label: {
+            Image(systemName: "info.circle")
+                .font(.system(size: 17, weight: .semibold))
+                .foregroundStyle(PaperIndexStyle.ink)
+                .frame(width: 42, height: 42)
+                .background(PaperIndexStyle.surface, in: Circle())
+                .overlay {
+                    Circle()
+                        .stroke(PaperIndexStyle.border, lineWidth: 1)
+                }
+        }
+        .accessibilityLabel("PaperDrawer information")
     }
 }
 

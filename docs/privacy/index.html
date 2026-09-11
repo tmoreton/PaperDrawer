@@ -36,7 +36,7 @@
     <p class="eyebrow">Your documents stay yours</p>
     <h1>Privacy Policy</h1>
     <p class="lede">PaperDrawer processes your documents on your Apple device and does not send them to a PaperDrawer-controlled server.</p>
-    <p class="effective">Effective September 10, 2026</p>
+    <p class="effective">Effective September 11, 2026</p>
 
     <div class="notice">
       <strong>The short version</strong>
@@ -47,12 +47,13 @@
       <section>
         <h2>Information PaperDrawer processes</h2>
         <p>When you use PaperDrawer, the app processes the pages you scan, the text recognized from those pages, document titles, categories, summaries, keywords, dates, and local storage information. This information is needed to build and search your document archive.</p>
-        <p>The PaperDrawer developers do not receive this information.</p>
+        <p>The PaperDrawer developer does not receive this information.</p>
       </section>
 
       <section>
         <h2>On-device processing</h2>
         <p>PaperDrawer uses Apple system frameworks for document capture and text recognition. OCR runs with Vision on your device. Metadata enrichment uses Apple's on-device Foundation Models on supported devices; otherwise PaperDrawer uses local rules. The app does not upload scans or recognized text to an external AI service.</p>
+        <p>Document search runs inside PaperDrawer. Beginning with version 1.2, the app removes the Core Spotlight index previously created for library records and no longer submits those records for system indexing. The independent text and image copies that you choose to keep in Files or iCloud Drive may still be indexed by Apple according to your system settings.</p>
       </section>
 
       <section>
@@ -67,7 +68,7 @@
 
       <section>
         <h2>Permissions</h2>
-        <p>PaperDrawer requests camera access only so you can scan documents. You can change camera permission in iOS or iPadOS Settings. The app does not request location, contacts, microphone, photo-library, advertising identifier, or tracking permission.</p>
+        <p>PaperDrawer requests camera access only after you choose Scan and only so you can capture documents. You can change camera permission in iOS or iPadOS Settings. The app does not request location, contacts, microphone, photo-library, advertising identifier, or tracking permission.</p>
       </section>
 
       <section>
@@ -78,7 +79,15 @@
       <section id="retention-and-deletion">
         <h2>Retention and deletion</h2>
         <p>Your documents remain until you delete them. Deleting a document from the PaperDrawer library removes its library record and stored pages from the app database, including synced records where applicable. Files exports are intentionally left in place so an app-library deletion does not destroy your independent copy; delete those separately in Files.</p>
+        <p>When you choose Share, PaperDrawer creates a temporary local PDF. It removes that temporary copy after the share sheet completes or during the next app launch if sharing was interrupted. A destination you select in Apple's share sheet receives its own copy and handles it under that destination's privacy terms.</p>
         <p>Deleting PaperDrawer removes its local app container. Copies previously stored in iCloud Drive or synced through iCloud may remain in your Apple Account until you remove them using Apple's tools.</p>
+      </section>
+
+      <section>
+        <h2>Website and support</h2>
+        <p>The PaperDrawer website is a static site hosted by GitHub Pages. PaperDrawer adds no analytics, advertising scripts, tracking pixels, forms, or cookies. GitHub may process ordinary web-request information under its own terms and privacy policy when it serves a page.</p>
+        <p>You can contact the developer by email for private support. The developer's email provider processes the address, message, and other information you choose to send so the request can be answered. Do not email scans, recognized text, account numbers, health information, identity documents, or other sensitive content.</p>
+        <p>Nonsensitive bug reports can also use the public GitHub issue tracker. A GitHub account is required to post, and anything submitted there is public and handled by GitHub. Never include a scan, recognized text, or other sensitive information in an issue.</p>
       </section>
 
       <section>
@@ -93,14 +102,14 @@
 
       <section>
         <h2>Contact</h2>
-        <p>For privacy questions, <a href="https://github.com/tmoreton/PaperDrawer/issues">open an issue in the PaperDrawer repository</a>. Do not include scans, recognized text, account numbers, health information, or other sensitive content in a public issue.</p>
+        <p>Email <a href="mailto:tmoreton89@gmail.com">tmoreton89@gmail.com</a> or visit <a href="../support/">PaperDrawer Support</a>. Do not include scans, recognized text, account numbers, health information, identity documents, or other sensitive content in a support request.</p>
       </section>
     </article>
   </main>
   <footer>
     <div class="footer-row shell">
-      <span>PaperDrawer · Private by design.</span>
-      <span class="footer-links"><a href="../">Home</a><a href="../terms/">Terms</a><a href="https://github.com/tmoreton/PaperDrawer">GitHub</a></span>
+      <span>© 2026 Tim Moreton Jr. · PaperDrawer</span>
+      <span class="footer-links"><a href="../">Home</a><a href="../support/">Support</a><a href="../terms/">Terms</a><a href="https://github.com/tmoreton/PaperDrawer">GitHub</a></span>
     </div>
   </footer>
 </body>

@@ -170,9 +170,13 @@ enum DocumentFileStore {
     }
 
     private static var iCloudDocumentsURL: URL? {
+        #if targetEnvironment(simulator)
+        return nil
+        #else
         FileManager.default
             .url(forUbiquityContainerIdentifier: iCloudContainerIdentifier)?
             .appendingPathComponent("Documents", isDirectory: true)
+        #endif
     }
 
     private static func archiveRootURL(in documentsURL: URL, folderName: String) -> URL {
@@ -229,24 +233,30 @@ enum DocumentFileStore {
         let fileManager = FileManager.default
         try fileManager.createDirectory(at: folderURL, withIntermediateDirectories: true)
 
-        try overviewText(for: package)
-            .write(
-                to: folderURL.appendingPathComponent("Document Info.txt"),
-                atomically: true,
-                encoding: .utf8
-            )
+        try writeText(
+            overviewText(for: package),
+            to: folderURL.appendingPathComponent("Document Info.txt")
+        )
 
-        try ocrText(for: package)
-            .write(
-                to: folderURL.appendingPathComponent("OCR Text.txt"),
-                atomically: true,
-                encoding: .utf8
-            )
+        try writeText(
+            ocrText(for: package),
+            to: folderURL.appendingPathComponent("OCR Text.txt")
+        )
 
         for page in package.pages {
             let fileName = "Page \(String(format: "%02d", page.index + 1)).jpg"
-            try page.imageData.write(to: folderURL.appendingPathComponent(fileName), options: .atomic)
+            try page.imageData.write(
+                to: folderURL.appendingPathComponent(fileName),
+                options: [.atomic, .completeFileProtection]
+            )
         }
+    }
+
+    private static func writeText(_ text: String, to url: URL) throws {
+        try Data(text.utf8).write(
+            to: url,
+            options: [.atomic, .completeFileProtection]
+        )
     }
 
     private static func overviewText(for package: DocumentFileExportPackage) -> String {

@@ -9,11 +9,11 @@ import SwiftData
 @Model
 final class ScannedDocument {
     var id: UUID = UUID()
-    @Attribute(.spotlight, .allowsCloudEncryption) var title: String = ""
-    @Attribute(.spotlight, .allowsCloudEncryption) var category: String = DocumentCategory.general.rawValue
-    @Attribute(.spotlight, .allowsCloudEncryption) var fullText: String = ""
-    @Attribute(.spotlight, .allowsCloudEncryption) var documentSummary: String = ""
-    @Attribute(.spotlight, .allowsCloudEncryption) var keywordsText: String = ""
+    @Attribute(.allowsCloudEncryption) var title: String = ""
+    @Attribute(.allowsCloudEncryption) var category: String = DocumentCategory.general.rawValue
+    @Attribute(.allowsCloudEncryption) var fullText: String = ""
+    @Attribute(.allowsCloudEncryption) var documentSummary: String = ""
+    @Attribute(.allowsCloudEncryption) var keywordsText: String = ""
     @Attribute(.allowsCloudEncryption) var fileStorageFolderName: String = ""
     @Attribute(.allowsCloudEncryption) var filesExportedAt: Date?
     var createdAt: Date = Date()
@@ -114,7 +114,7 @@ final class ScannedPage {
     var id: UUID = UUID()
     var index: Int = 0
     @Attribute(.externalStorage, .allowsCloudEncryption) var imageData: Data?
-    @Attribute(.spotlight, .allowsCloudEncryption) var recognizedText: String = ""
+    @Attribute(.allowsCloudEncryption) var recognizedText: String = ""
     var createdAt: Date = Date()
     var document: ScannedDocument?
 

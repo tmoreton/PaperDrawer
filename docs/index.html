@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f5f7">
   <title>PaperDrawer — Scan paper. Find anything.</title>
-  <meta name="description" content="PaperDrawer turns receipts, statements, forms, and notes into a calm, searchable archive on iPhone and iPad.">
+  <meta name="description" content="PaperDrawer is a private, local-first document scanner for iPhone and iPad. One purchase, no account, and no subscription.">
   <meta property="og:title" content="PaperDrawer — Paper in. Clarity out.">
   <meta property="og:description" content="A private, searchable home for your documents.">
   <meta property="og:image" content="https://getpaperdrawer.com/assets/paperdrawer-social-preview.png">
@@ -651,7 +651,90 @@
       font-weight: 760;
     }
 
-    .open-source {
+    .availability {
+      padding: 88px 0;
+      color: white;
+      background: var(--blue);
+    }
+
+    .app-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .info-dot {
+      display: inline-grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: white;
+      font-size: 0.86rem;
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    .availability-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .availability .eyebrow { color: white; }
+    .availability .eyebrow::before { background: white; }
+
+    .availability h2 {
+      max-width: 760px;
+      margin-bottom: 14px;
+      font-size: clamp(2.6rem, 5.4vw, 5rem);
+    }
+
+    .availability-copy {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.08rem;
+    }
+
+    .availability-actions {
+      display: grid;
+      gap: 10px;
+      min-width: 290px;
+    }
+
+    .availability .button.primary {
+      color: var(--ink);
+      border-color: white;
+      background: white;
+      box-shadow: none;
+    }
+
+    .availability .button.secondary {
+      color: white;
+      border-color: rgba(255, 255, 255, 0.46);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .button.pending,
+    .button.pending:hover,
+    .button.pending:focus-visible {
+      cursor: default;
+      transform: none;
+    }
+
+    .availability-note {
+      margin: 2px 0 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .source-available {
       padding: 88px 0;
       border-top: 1px solid var(--line);
       background: var(--surface);
@@ -752,10 +835,14 @@
       .step { grid-template-columns: 44px 1fr; }
       .step-tag { display: none; }
 
+      .availability-panel,
       .open-panel {
         grid-template-columns: 1fr;
         padding: 28px;
       }
+
+      .availability-panel { padding: 0; }
+      .availability-actions { min-width: 0; }
 
       .footer-row { flex-direction: column; }
     }
@@ -778,7 +865,7 @@
         <a href="#workflow">How it works</a>
         <a href="privacy/">Privacy</a>
         <a href="https://github.com/tmoreton/PaperDrawer">Source</a>
-        <a class="nav-cta" href="https://github.com/tmoreton/PaperDrawer">View on GitHub</a>
+        <a class="nav-cta" href="#availability">Get PaperDrawer</a>
       </div>
     </nav>
   </header>
@@ -789,9 +876,9 @@
         <div>
           <p class="eyebrow">A calm place for paper</p>
           <h1 id="hero-title">Paper,<span>in its place.</span></h1>
-          <p class="hero-copy">Scan receipts, statements, forms, and notes. PaperDrawer recognizes the text, organizes the result, and makes it clear where every copy lives.</p>
+          <p class="hero-copy">Useful software without another subscription. Scan receipts, statements, forms, and notes; PaperDrawer recognizes the text, organizes the result, and makes every copy easy to find.</p>
           <div class="hero-actions">
-            <a class="button primary" href="https://github.com/tmoreton/PaperDrawer">Explore the source <span aria-hidden="true">↗</span></a>
+            <a class="button primary" href="#availability">Get on the App Store <span aria-hidden="true">↓</span></a>
             <a class="button secondary" href="#workflow">See the workflow</a>
           </div>
           <div class="hero-notes" aria-label="Product highlights">
@@ -807,7 +894,7 @@
               <div class="phone-status"><span>9:41</span><span>● Wi-Fi ▰</span></div>
               <div class="app-title-row">
                 <div><h3>Documents</h3><p>3 saved and searchable</p></div>
-                <span class="scan-pill">▣&nbsp; Scan</span>
+                <div class="app-actions"><span class="info-dot" aria-hidden="true">i</span><span class="scan-pill">▣&nbsp; Scan</span></div>
               </div>
               <div class="search-field">⌕ &nbsp; Search titles or recognized text</div>
               <div class="filter-row"><span>3 documents</span><span class="filter-pill">All⌄</span></div>
@@ -833,10 +920,10 @@
 
     <div class="trust-bar" aria-label="PaperDrawer principles">
       <div class="trust-items shell">
-        <span>Native document capture</span>
-        <span>Search recognized text</span>
-        <span>Clear Files exports</span>
-        <span>Free and open source</span>
+        <span>One purchase</span>
+        <span>No subscription</span>
+        <span>No account required</span>
+        <span>Private and local-first</span>
       </div>
     </div>
 
@@ -849,7 +936,7 @@
         </div>
         <div class="feature-grid">
           <article class="feature-card"><span class="feature-number">01</span><h3>Search what the page says</h3><p>On-device text recognition makes names, totals, dates, and details findable—not just the document title.</p></article>
-          <article class="feature-card"><span class="feature-number">02</span><h3>Understand it at a glance</h3><p>Automatic titles, summaries, and practical categories turn a camera roll of pages into a usable archive.</p></article>
+          <article class="feature-card"><span class="feature-number">02</span><h3>Understand it at a glance</h3><p>A local title and category organize every scan; supported devices can add an on-device summary and keywords.</p></article>
           <article class="feature-card"><span class="feature-number">03</span><h3>Know where it was saved</h3><p>Every document clearly shows its PaperDrawer and Files status, so saving never ends in uncertainty.</p></article>
         </div>
       </div>
@@ -864,7 +951,7 @@
         </div>
         <div class="steps">
           <article class="step"><span class="step-index">01</span><div class="step-copy"><h3>Scan the pages</h3><p>Use Apple’s native document camera to capture clean, cropped pages quickly.</p></div><span class="step-tag">Capture</span></article>
-          <article class="step"><span class="step-index">02</span><div class="step-copy"><h3>Recognize and organize</h3><p>PaperDrawer reads the text and produces a useful title, summary, and category.</p></div><span class="step-tag">File</span></article>
+          <article class="step"><span class="step-index">02</span><div class="step-copy"><h3>Recognize and organize</h3><p>PaperDrawer reads the text locally, assigns a useful title and category, and adds on-device details where supported.</p></div><span class="step-tag">File</span></article>
           <article class="step"><span class="step-index">03</span><div class="step-copy"><h3>Find it when it matters</h3><p>Search by title or page content, then open the matching copy directly in Files.</p></div><span class="step-tag">Retrieve</span></article>
         </div>
       </div>
@@ -886,22 +973,37 @@
       </div>
     </section>
 
-    <section class="open-source">
+    <section class="availability" id="availability">
+      <div class="availability-panel shell">
+        <div>
+          <p class="eyebrow">Useful software without another subscription</p>
+          <h2>Buy it once. Keep your documents yours.</h2>
+          <p class="availability-copy">PaperDrawer is being prepared as a $19 one-time App Store purchase in the U.S., with no PaperDrawer account and no recurring fee. It will remain useful on its own and will also be included in the paid Productivity Bundle.</p>
+        </div>
+        <div class="availability-actions" aria-label="Purchase availability">
+          <span class="button primary pending" aria-disabled="true">Get on the App Store</span>
+          <span class="button secondary pending" aria-disabled="true">Included in the Productivity Bundle</span>
+          <p class="availability-note">Planned U.S. price: $19. Local App Store pricing may vary; links activate after publication.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="source-available">
       <div class="open-panel shell">
         <div>
-          <p class="eyebrow">Open by design</p>
+          <p class="eyebrow">Source available</p>
           <h2>A private scanner you can inspect.</h2>
-          <p>PaperDrawer is a focused native SwiftUI app with on-device OCR, no required account, and source code available for review.</p>
+          <p>PaperDrawer is a focused native SwiftUI app with on-device OCR, no required account, and publicly inspectable source. The repository includes the source-build license and third-party notices.</p>
         </div>
-        <a class="button primary" href="https://github.com/tmoreton/PaperDrawer">Open GitHub <span aria-hidden="true">↗</span></a>
+        <a class="button primary" href="https://github.com/tmoreton/PaperDrawer">Inspect the source <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-row shell">
-      <span>PaperDrawer is built for iPhone and iPad.</span>
-      <span class="footer-links"><a href="privacy/">Privacy</a><a href="terms/">Terms</a><a href="https://github.com/tmoreton/PaperDrawer">GitHub</a></span>
+      <span>© 2026 Tim Moreton Jr. · Built for iPhone and iPad.</span>
+      <span class="footer-links"><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="terms/">Terms</a><a href="https://github.com/tmoreton/PaperDrawer">GitHub</a></span>
     </div>
   </footer>
 </body>
