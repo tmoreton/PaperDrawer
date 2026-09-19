@@ -1,6 +1,6 @@
 //
 //  DocumentScannerView.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import SwiftUI

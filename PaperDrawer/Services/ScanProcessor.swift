@@ -1,6 +1,6 @@
 //
 //  ScanProcessor.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import UIKit

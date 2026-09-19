@@ -48,7 +48,7 @@ Debug builds accept fictional preview data arguments that are excluded from Rele
 ```sh
 scripts/capture_app_store_screenshots.sh \
   <simulator-udid> \
-  <path-to-PaperIndex.app> \
+  <path-to-PaperDrawer.app> \
   .build/app-store-source/<device-name>
 ```
 

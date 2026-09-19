@@ -1,6 +1,6 @@
 //
-//  PaperIndexApp.swift
-//  PaperIndex
+//  PaperDrawerApp.swift
+//  PaperDrawer
 //
 //  Created by Homelab on 8/21/26.
 //
@@ -12,7 +12,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct PaperIndexApp: App {
+struct PaperDrawerApp: App {
     @StateObject private var modelStore: PaperDrawerModelStore
 
     init() {
@@ -97,7 +97,7 @@ private struct ModelStoreOpeningView: View {
     var body: some View {
         ProgressView("Opening document library…")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(PaperIndexStyle.background)
+            .background(PaperDrawerStyle.background)
     }
 }
 
@@ -114,10 +114,10 @@ private struct ModelStoreUnavailableView: View {
         } actions: {
             Button("Try Again", systemImage: "arrow.clockwise", action: retryAction)
                 .buttonStyle(.borderedProminent)
-                .tint(PaperIndexStyle.blue)
+                .tint(PaperDrawerStyle.blue)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(PaperIndexStyle.background)
+        .background(PaperDrawerStyle.background)
     }
 }
 

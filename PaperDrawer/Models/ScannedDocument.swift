@@ -1,6 +1,6 @@
 //
 //  ScannedDocument.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import Foundation

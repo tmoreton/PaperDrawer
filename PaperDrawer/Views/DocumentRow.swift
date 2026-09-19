@@ -1,6 +1,6 @@
 //
 //  DocumentRow.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import SwiftUI
@@ -54,12 +54,12 @@ struct DocumentRow: View {
         .padding(14)
         .background(
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(PaperIndexStyle.surface)
-                .shadow(color: PaperIndexStyle.shadow, radius: 12, x: 0, y: 6)
+                .fill(PaperDrawerStyle.surface)
+                .shadow(color: PaperDrawerStyle.shadow, radius: 12, x: 0, y: 6)
         )
         .overlay {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(PaperIndexStyle.border, lineWidth: 1)
+                .stroke(PaperDrawerStyle.border, lineWidth: 1)
         }
     }
 
@@ -67,12 +67,12 @@ struct DocumentRow: View {
         VStack(alignment: .leading, spacing: 7) {
             Text(document.title)
                 .font(.headline.weight(.semibold))
-                .foregroundStyle(PaperIndexStyle.ink)
+                .foregroundStyle(PaperDrawerStyle.ink)
                 .lineLimit(titleLineLimit)
 
             Text(metadata)
                 .font(.caption)
-                .foregroundStyle(PaperIndexStyle.secondaryInk)
+                .foregroundStyle(PaperDrawerStyle.secondaryInk)
                 .lineLimit(2)
         }
     }
@@ -80,11 +80,11 @@ struct DocumentRow: View {
     private var categoryBadge: some View {
         Text(document.category)
             .font(.caption2.weight(.semibold))
-            .foregroundStyle(PaperIndexStyle.secondaryInk)
+            .foregroundStyle(PaperDrawerStyle.secondaryInk)
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
             .frame(minHeight: 24)
-            .background(PaperIndexStyle.mutedSurface, in: Capsule())
+            .background(PaperDrawerStyle.mutedSurface, in: Capsule())
     }
 
     private var fileStatus: some View {
@@ -97,20 +97,20 @@ struct DocumentRow: View {
             }
         }
         .font(.caption2.weight(.medium))
-        .foregroundStyle(document.filesExportedAt == nil ? PaperIndexStyle.tertiaryInk : PaperIndexStyle.blue)
+        .foregroundStyle(document.filesExportedAt == nil ? PaperDrawerStyle.tertiaryInk : PaperDrawerStyle.blue)
     }
 
     private var searchSnippet: some View {
         Text(snippet)
             .font(.subheadline)
-            .foregroundStyle(PaperIndexStyle.secondaryInk)
+            .foregroundStyle(PaperDrawerStyle.secondaryInk)
             .lineLimit(dynamicTypeSize.isAccessibilitySize ? 4 : 2)
     }
 
     private var thumbnail: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 6, style: .continuous)
-                .fill(PaperIndexStyle.mutedSurface)
+                .fill(PaperDrawerStyle.mutedSurface)
 
             if let data = document.sortedPages.first?.imageData,
                let image = UIImage(data: data) {
@@ -125,13 +125,13 @@ struct DocumentRow: View {
             } else {
                 Image(systemName: "doc.viewfinder")
                     .font(.title2)
-                    .foregroundStyle(PaperIndexStyle.secondaryInk)
+                    .foregroundStyle(PaperDrawerStyle.secondaryInk)
             }
         }
         .frame(width: 60, height: 78)
         .overlay {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(PaperIndexStyle.border, lineWidth: 1)
+                .stroke(PaperDrawerStyle.border, lineWidth: 1)
         }
     }
 

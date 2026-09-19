@@ -67,17 +67,17 @@ PaperDrawer contains no application networking layer. Apple system frameworks ma
 
 ## Build
 
-Open `PaperIndex.xcodeproj` in Xcode and run the `PaperIndex` scheme, or build from Terminal:
+Open `PaperDrawer.xcodeproj` in Xcode and run the `PaperDrawer` scheme, or build from Terminal:
 
 ```sh
 xcodebuild \
-  -project PaperIndex.xcodeproj \
-  -scheme PaperIndex \
+  -project PaperDrawer.xcodeproj \
+  -scheme PaperDrawer \
   -destination 'platform=iOS Simulator,name=iPhone 17 Pro' \
   build
 ```
 
-The customer-facing product name is PaperDrawer. The original Xcode project, target, bundle, iCloud container, and SwiftData store identifiers intentionally remain unchanged so updates keep the same App Store identity and existing user data.
+The customer-facing product name, source folder, Xcode project, target, scheme, and built product are all PaperDrawer. The original bundle, iCloud container, and SwiftData store identifiers remain unchanged so updates keep the same App Store identity and existing user data.
 
 On-device builds made outside the PaperDrawer development team need their own Apple signing identity, bundle identifier, and iCloud container. Those identifiers are configuration, not service credentials; Apple signing prevents an unrelated build from accessing PaperDrawer's private iCloud container.
 
@@ -100,7 +100,7 @@ The script lets Xcode refresh managed provisioning profiles, writes only to the 
 ## Project structure
 
 ```text
-PaperIndex/
+PaperDrawer/
 ├── Models/       SwiftData document and page models
 ├── Services/     OCR, metadata, search, scan processing, and Files export
 ├── Views/        SwiftUI archive, detail, scanner, and storage views

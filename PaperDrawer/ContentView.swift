@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  PaperIndex
+//  PaperDrawer
 //
 //  Created by Homelab on 8/21/26.
 //
@@ -99,9 +99,9 @@ struct ContentView: View {
             }
             .listStyle(.plain)
             .scrollContentBackground(.hidden)
-            .background(PaperIndexStyle.background)
+            .background(PaperDrawerStyle.background)
             .toolbar(.hidden, for: .navigationBar)
-            .tint(PaperIndexStyle.blue)
+            .tint(PaperDrawerStyle.blue)
             .navigationDestination(for: UUID.self) { documentID in
                 if let document = documents.first(where: { $0.id == documentID }) {
                     DocumentDetailView(document: document)

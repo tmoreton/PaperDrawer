@@ -12,8 +12,8 @@ export_path="$release_root/export"
 mkdir -p "$release_root"
 
 xcodebuild \
-  -project "$repository_root/PaperIndex.xcodeproj" \
-  -scheme PaperIndex \
+  -project "$repository_root/PaperDrawer.xcodeproj" \
+  -scheme PaperDrawer \
   -configuration Release \
   -destination 'generic/platform=iOS' \
   -archivePath "$archive_path" \
@@ -21,7 +21,7 @@ xcodebuild \
   clean archive
 
 codesign --verify --deep --strict --verbose=2 \
-  "$archive_path/Products/Applications/PaperIndex.app"
+  "$archive_path/Products/Applications/PaperDrawer.app"
 
 xcodebuild \
   -exportArchive \

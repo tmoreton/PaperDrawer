@@ -1,6 +1,6 @@
 //
 //  DocumentFileStore.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import Foundation

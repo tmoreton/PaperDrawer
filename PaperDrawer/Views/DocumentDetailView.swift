@@ -1,6 +1,6 @@
 //
 //  DocumentDetailView.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import SwiftData
@@ -38,11 +38,11 @@ struct DocumentDetailView: View {
             .padding(.top, 12)
             .padding(.bottom, 32)
         }
-        .background(PaperIndexStyle.background)
+        .background(PaperDrawerStyle.background)
         .navigationTitle(document.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
-        .toolbarBackground(PaperIndexStyle.background, for: .navigationBar)
+        .toolbarBackground(PaperDrawerStyle.background, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
         .toolbar {
             ToolbarItemGroup(placement: .topBarTrailing) {
@@ -56,7 +56,7 @@ struct DocumentDetailView: View {
                                 .font(.system(size: 17, weight: .semibold))
                         }
                     }
-                    .foregroundStyle(PaperIndexStyle.ink)
+                    .foregroundStyle(PaperDrawerStyle.ink)
                     .frame(width: 42, height: 42)
                 }
                 .disabled(isPreparingShare)
@@ -78,7 +78,7 @@ struct DocumentDetailView: View {
                     .foregroundStyle(.white)
                     .padding(.horizontal, 16)
                     .frame(height: 42)
-                    .background(PaperIndexStyle.darkSurface, in: Capsule())
+                    .background(PaperDrawerStyle.darkSurface, in: Capsule())
                     .shadow(color: Color.black.opacity(0.16), radius: 16, x: 0, y: 8)
                     .padding(.top, 12)
                     .transition(.move(edge: .top).combined(with: .opacity))
@@ -149,13 +149,13 @@ struct DocumentDetailView: View {
                         .contrast(1.2)
                         .brightness(0.03)
                         .padding(8)
-                        .background(PaperIndexStyle.surface)
+                        .background(PaperDrawerStyle.surface)
                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                         .overlay {
                             RoundedRectangle(cornerRadius: 16, style: .continuous)
-                                .stroke(PaperIndexStyle.border, lineWidth: 1)
+                                .stroke(PaperDrawerStyle.border, lineWidth: 1)
                         }
-                        .shadow(color: PaperIndexStyle.shadow, radius: 12, x: 0, y: 6)
+                        .shadow(color: PaperDrawerStyle.shadow, radius: 12, x: 0, y: 6)
                 }
             }
         }
@@ -183,7 +183,7 @@ struct DocumentDetailView: View {
             if !document.cleanedSummary.isEmpty {
                 Text(document.cleanedSummary)
                     .font(.body)
-                    .foregroundStyle(PaperIndexStyle.ink)
+                    .foregroundStyle(PaperDrawerStyle.ink)
                     .lineSpacing(3)
                     .textSelection(.enabled)
             }
@@ -193,19 +193,19 @@ struct DocumentDetailView: View {
     private var categoryBadge: some View {
         Text(document.category)
             .font(.caption.weight(.semibold))
-            .foregroundStyle(PaperIndexStyle.secondaryInk)
+            .foregroundStyle(PaperDrawerStyle.secondaryInk)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(PaperIndexStyle.mutedSurface, in: Capsule())
+            .background(PaperDrawerStyle.mutedSurface, in: Capsule())
             .overlay {
                 Capsule()
-                    .stroke(PaperIndexStyle.border, lineWidth: 1)
+                    .stroke(PaperDrawerStyle.border, lineWidth: 1)
             }
     }
 
     private var createdDate: some View {
         Text(document.createdAt.formatted(date: .abbreviated, time: .shortened))
-            .foregroundStyle(PaperIndexStyle.secondaryInk)
+            .foregroundStyle(PaperDrawerStyle.secondaryInk)
     }
 
     private var filesButton: some View {
@@ -223,7 +223,7 @@ struct DocumentDetailView: View {
             .font(.headline.weight(.semibold))
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity, minHeight: 52)
-            .background(PaperIndexStyle.blue, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .background(PaperDrawerStyle.blue, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         }
         .buttonStyle(.plain)
         .disabled(isExportingFiles)
@@ -249,13 +249,13 @@ struct DocumentDetailView: View {
     private func sectionTitle(_ title: String) -> some View {
         Text(title)
             .font(.headline)
-            .foregroundStyle(PaperIndexStyle.ink)
+            .foregroundStyle(PaperDrawerStyle.ink)
     }
 
     private func sectionDetail(_ detail: String) -> some View {
         Text(detail)
             .font(.caption.weight(.medium))
-            .foregroundStyle(PaperIndexStyle.tertiaryInk)
+            .foregroundStyle(PaperDrawerStyle.tertiaryInk)
     }
 
     private var recognizedText: some View {
@@ -278,18 +278,18 @@ struct DocumentDetailView: View {
             Text(displayRecognizedText.isEmpty ? "No text recognized." : displayRecognizedText)
                 .font(.body)
                 .lineSpacing(6)
-                .foregroundStyle(PaperIndexStyle.ink)
+                .foregroundStyle(PaperDrawerStyle.ink)
                 .textSelection(.enabled)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(14)
                 .background(
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .fill(PaperIndexStyle.surface)
-                        .shadow(color: PaperIndexStyle.shadow, radius: 12, x: 0, y: 6)
+                        .fill(PaperDrawerStyle.surface)
+                        .shadow(color: PaperDrawerStyle.shadow, radius: 12, x: 0, y: 6)
                 )
                 .overlay {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .stroke(PaperIndexStyle.border, lineWidth: 1)
+                        .stroke(PaperDrawerStyle.border, lineWidth: 1)
                 }
         }
     }
@@ -301,15 +301,15 @@ struct DocumentDetailView: View {
                 systemImage: hasCopiedText ? "checkmark" : "doc.on.doc"
             )
             .font(.subheadline.weight(.semibold))
-            .foregroundStyle(displayRecognizedText.isEmpty ? PaperIndexStyle.tertiaryInk : PaperIndexStyle.blue)
+            .foregroundStyle(displayRecognizedText.isEmpty ? PaperDrawerStyle.tertiaryInk : PaperDrawerStyle.blue)
             .padding(.horizontal, 13)
             .frame(minHeight: 42)
-            .background(PaperIndexStyle.surface, in: Capsule())
+            .background(PaperDrawerStyle.surface, in: Capsule())
             .overlay {
                 Capsule()
-                    .stroke(PaperIndexStyle.border, lineWidth: 1)
+                    .stroke(PaperDrawerStyle.border, lineWidth: 1)
             }
-            .shadow(color: PaperIndexStyle.shadow.opacity(0.45), radius: 10, x: 0, y: 5)
+            .shadow(color: PaperDrawerStyle.shadow.opacity(0.45), radius: 10, x: 0, y: 5)
         }
         .buttonStyle(.plain)
         .disabled(displayRecognizedText.isEmpty)
@@ -492,7 +492,7 @@ private struct DetailMoreMenu: View {
         } label: {
             Image(systemName: "ellipsis")
                 .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(PaperIndexStyle.ink)
+                .foregroundStyle(PaperDrawerStyle.ink)
                 .frame(width: 42, height: 42)
         }
         .accessibilityLabel("Document actions")

@@ -1,6 +1,6 @@
 //
 //  OCRTextFormatter.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import Foundation

@@ -23,7 +23,7 @@ Audited September 11, 2026 for PaperDrawer 1.2 (build 7).
 | Configured U.S. price | $19, one-time purchase |
 | First-party backend | None |
 
-The customer-facing name is PaperDrawer. The PaperIndex project/target name and the original DocScan identifiers are intentionally preserved for App Store continuity and access to existing app, SwiftData, Files, and iCloud data.
+The customer-facing name, source folder, Xcode project, target, scheme, and built product are all PaperDrawer. The original DocScan bundle, iCloud container, and SwiftData store identifiers are intentionally preserved for App Store continuity and access to existing app, Files, and iCloud data.
 
 ## Position in the Productivity Bundle
 

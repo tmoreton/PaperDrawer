@@ -1,6 +1,6 @@
 //
 //  DocumentStorageBrowserView.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import SwiftUI

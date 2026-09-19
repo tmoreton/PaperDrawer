@@ -1,11 +1,11 @@
 //
-//  PaperIndexStyle.swift
-//  PaperIndex
+//  PaperDrawerStyle.swift
+//  PaperDrawer
 //
 
 import SwiftUI
 
-enum PaperIndexStyle {
+enum PaperDrawerStyle {
     static let background = Color(red: 0.957, green: 0.961, blue: 0.969)
     static let surface = Color.white
     static let mutedSurface = Color(red: 0.910, green: 0.922, blue: 0.941)

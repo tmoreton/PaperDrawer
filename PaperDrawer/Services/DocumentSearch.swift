@@ -1,6 +1,6 @@
 //
 //  DocumentSearch.swift
-//  PaperIndex
+//  PaperDrawer
 //
 
 import Foundation
