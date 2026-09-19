@@ -72,10 +72,23 @@ enum DocumentMetadataService {
 
         do {
             let session = LanguageModelSession(model: model, instructions: instructions)
+#if compiler(>=6.4)
+            let generationOptions = GenerationOptions(
+                samplingMode: .greedy,
+                temperature: 0.0,
+                maximumResponseTokens: 320
+            )
+#else
+            let generationOptions = GenerationOptions(
+                sampling: .greedy,
+                temperature: 0.0,
+                maximumResponseTokens: 320
+            )
+#endif
             let response = try await session.respond(
                 to: prompt(with: context),
                 generating: GeneratedDocumentMetadata.self,
-                options: GenerationOptions(samplingMode: .greedy, temperature: 0.0, maximumResponseTokens: 320)
+                options: generationOptions
             )
 
             return cleanedMetadata(from: response.content, fallback: fallback)
