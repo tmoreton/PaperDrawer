@@ -11,7 +11,7 @@
 - **Privacy Policy URL:** https://getpaperdrawer.com/privacy/
 - **Website Terms URL (linked inside the app):** https://getpaperdrawer.com/terms/
 - **App Store ID:** 6808849656
-- **Public App Store URL when approved:** https://apps.apple.com/app/id6808849656
+- **Public App Store URL:** https://apps.apple.com/us/app/paperdrawer/id6808849656
 - **Configured U.S. base price:** $19, one-time purchase
 - **App Store License Agreement:** Apple Standard EULA; do not enter a custom EULA in App Store Connect
 - **Copyright:** 2026 Tim Moreton Jr.
@@ -52,15 +52,6 @@ OCR,receipt,invoice,PDF,scan,paperless,search,archive,statement,form,letter,fili
 
 PaperDrawer 1.2 improves privacy and reliability. Camera access is now requested only after you choose Scan. Search stays inside PaperDrawer and the prior Spotlight index is removed. New Files exports and temporary share PDFs receive stronger device protection, and a new information menu links directly to privacy, support, terms, and source. Existing library records and Files exports are preserved during the update.
 
-## App Review information
-
-- **First name:** Tim
-- **Last name:** Moreton
-- **Email:** tmoreton89@gmail.com (confirmed by the owner)
-- **Phone:** Configured in App Store Connect; intentionally not stored in this public repository.
-- **Sign-in required:** No
-- **Demo account:** Not applicable
-
 ## App Review notes
 
 PaperDrawer does not require an account or sign-in. Tap **Scan** and capture any printed page to exercise the main flow. Live document capture requires a physical iPhone or iPad camera. The information button beside **Scan** provides in-app links to the privacy policy, support page, terms, and inspectable source.
@@ -79,44 +70,3 @@ Based on the current source and Apple's definition of collection:
 - **User Privacy Choices URL:** https://getpaperdrawer.com/privacy/#retention-and-deletion (optional)
 
 Apple states that data processed only on-device is not “collected,” and developers are not responsible for disclosing data collected by Apple. Reconfirm these answers if networking, analytics, crash reporting, or third-party SDKs are added.
-
-## Submission checklist
-
-- [x] App icon included in the build
-- [x] Final iPhone 6.9-inch screenshots at accepted dimensions and without transparency
-- [x] 6.5-inch slot does not require a separate upload when the supplied 6.9-inch set is used; legacy images are retained only as reference
-- [x] Final iPad 13-inch screenshots at accepted dimensions and without transparency
-- [x] Updated privacy policy prepared in `docs/privacy/`
-- [x] Updated website terms prepared in `docs/terms/`
-- [x] Privacy manifest declaring no collection/tracking and the app-local UserDefaults reason
-- [x] Encryption declaration included in the app Info.plist
-- [x] Privacy policy and support links available inside the app
-- [x] Public iCloud Drive document-scope metadata included
-- [x] Remote notifications background mode declared for SwiftData CloudKit
-- [x] Source-available license, third-party notices, and trademark policy included
-- [x] Copyright owner confirmed as Tim Moreton Jr.
-- [x] Repository owner confirmed commercial rights to all included project assets
-- [x] Public support and App Review email confirmed as `tmoreton89@gmail.com`
-- [x] Existing App Store record confirmed as Apple ID 6808849656; version 1.1 (6) was uploaded successfully on September 10, 2026
-- [x] U.S. base price configured as **$19**, paid once with no in-app purchase or subscription
-- [x] Monitored international-format phone number entered in App Review Information
-- [x] Published and verified the marketing, privacy, support, and terms pages; all four return HTTP 200
-- [x] Version path resolved: 1.1 (6) was removed from review, and 1.2 (7) is the replacement App Store version
-- [x] Verified the Paid Apps Agreement, banking, and tax setup are active in App Store Connect
-- [x] Applied the $19 U.S. base price, retained all 175 territories, selected the App Store software tax category, and retained manual release
-- [x] Reconfirmed the 4+ age rating, no-third-party-content answer, and export-compliance declaration for version 1.2
-- [x] Verified Digital Services Act compliance is active; the developer is identified as a non-trader for this app
-- [x] Confirmed the regulated-medical-device declaration is not required for the current Productivity category and 4+ rating
-- [x] Confirmed Apple's Standard EULA applies and no custom EULA is configured
-- [ ] Deploy and verify the SwiftData schema in the production CloudKit container
-- [x] Push Notifications enabled for the App ID; managed profiles refreshed and the exported App Store build verified with production `aps-environment`
-- [x] Version 1.2 (build 7) archived, exported with App Store distribution signing, and locally validated
-- [x] Uploaded version 1.2 (build 7) and attached the processed build to the correct App Store version record
-- [x] Uploaded the final 6.9-inch iPhone and 13-inch iPad screenshot sets and verified their order in App Store Connect
-- [ ] Submit version 1.2 (build 7) for App Review and record the submission timestamp and resulting status
-- [ ] Test Files and private iCloud sync on two signed physical devices
-- [x] Build settings exclude untested Apple-silicon Mac and Apple Vision Pro compatibility
-- [x] Confirmed Mac and Vision Pro availability are disabled in App Store Connect
-- [x] Recaptured the required screenshot sets against the final 1.2 UI with fictional data
-- [ ] Activate the website App Store CTA with `https://apps.apple.com/app/id6808849656` when the listing is public
-- [ ] Confirm Yaprflow ($29), Screencast.to ($29), and PaperDrawer ($19) are in the same App Store Connect account, then create the discounted multi-app bundle after every member is paid and Ready for Distribution; keep its price at least $29 and below the $77 standalone total

@@ -1,12 +1,8 @@
 # Third-party notices
 
-Audited September 11, 2026.
+Audited September 19, 2026.
 
 PaperDrawer does not vendor or bundle third-party source libraries, binary SDKs, model files, or font files. The Xcode project has no Swift Package Manager, CocoaPods, or Carthage dependencies.
-
-## Git authorship audit
-
-The only human identity visible in repository commit authorship is the owner, recorded as both Tim Moreton and Tim Moreton Jr. with the same email address. History also contains one styling commit authored by the automated `coding-agent` identity and its pull-request merge authored by `ai-coding-agents[bot]`; the branch and pull request were created under the owner's repository, and no separate human contributor or copyright notice is present. The owner has confirmed ownership of the repository and its project assets and authorized this license change. No independently licensed external contribution was identified.
 
 ## Apple platform components
 
@@ -22,4 +18,4 @@ Version 1.2 uses Core Spotlight only to remove the app's legacy search index. Pa
 
 ## Project assets
 
-The repository owner has confirmed ownership and commercial rights for the app icons, PaperDrawer logo treatment, website hero image, social preview, and App Store screenshots. These are project branding or marketing assets rather than third-party runtime components. They are excluded from the software license as described in `LICENSE` and `TRADEMARKS.md`.
+The repository owner has confirmed ownership and commercial rights for the app icons, PaperDrawer logo treatment, social preview, and App Store screenshots. These are project branding or marketing assets rather than third-party runtime components. They are excluded from the software license as described in `LICENSE` and `TRADEMARKS.md`.

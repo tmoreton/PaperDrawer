@@ -2,7 +2,7 @@
 
 **A private, searchable document scanner for iPhone and iPad. Useful software without another subscription.**
 
-[Website](https://getpaperdrawer.com/) · [Privacy](https://getpaperdrawer.com/privacy/) · [Support](https://getpaperdrawer.com/support/) · [Terms](https://getpaperdrawer.com/terms/)
+[Download on the App Store](https://apps.apple.com/us/app/paperdrawer/id6808849656) · [Website](https://getpaperdrawer.com/) · [Privacy](https://getpaperdrawer.com/privacy/) · [Support](https://getpaperdrawer.com/support/) · [Terms](https://getpaperdrawer.com/terms/)
 
 PaperDrawer turns receipts, statements, forms, and notes into a calm, searchable archive. It captures pages with Apple's document camera, recognizes their text on-device, organizes them, and writes understandable copies to Files.
 
@@ -83,11 +83,11 @@ On-device builds made outside the PaperDrawer development team need their own Ap
 
 ## Distribution
 
-Official PaperDrawer releases are intended to be sold as a one-time App Store purchase, independently and as part of the paid Productivity Bundle. They require no PaperDrawer account and contain no subscription or in-app purchase.
+PaperDrawer is available as a one-time App Store purchase. It requires no PaperDrawer account and contains no subscription or in-app purchase.
 
 The source remains publicly inspectable and developers may build it under the repository license. Official App Store builds provide the signed production binary, the PaperDrawer branding, automatic App Store updates, and official support. Future GitHub releases must not attach the same signed production binary distributed through the App Store; source archives or clearly identified development artifacts may remain available.
 
-PaperDrawer's existing App Store record is Apple ID `6808849656`. The earlier 1.1 (build 6) submission was removed from review, and version 1.2 (build 7) was uploaded, processed, and attached to the replacement version record on September 11, 2026. Its configured U.S. price is **$19 as a one-time purchase**; App Store Connect determines the comparable prices in other storefronts. Activate the public App Store link only after Apple publishes the listing.
+[Download PaperDrawer from the App Store](https://apps.apple.com/us/app/paperdrawer/id6808849656). The configured U.S. price is **$19 as a one-time purchase**; the App Store determines comparable prices in other storefronts.
 
 Create the archive and exported release with:
 
@@ -111,7 +111,7 @@ docs/             GitHub Pages website, privacy policy, and terms
 
 ## Contributing
 
-Bug reports are welcome, but never include real scans, OCR text, account numbers, health information, or other sensitive data. Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing code; contributions require prior agreement so ownership and licensing remain clear.
+Bug reports are welcome, but never include real scans, OCR text, account numbers, health information, or other sensitive data. Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing code; contributions require prior agreement so ownership and licensing remain clear. Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
 
 ## License
 

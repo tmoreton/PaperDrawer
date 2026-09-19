@@ -67,7 +67,7 @@ final class ScannedDocument {
     }
 
     var searchableText: String {
-        ([title, category, documentSummary, keywordsText, recognizedText] + sortedPages.map(\.recognizedText))
+        [title, category, documentSummary, keywordsText, recognizedText]
             .joined(separator: " ")
     }
 

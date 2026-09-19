@@ -2,7 +2,7 @@
 
 This folder contains the English (U.S.) product-page copy and final simulator screenshots for PaperDrawer 1.2. The 6.9-inch iPhone and 13-inch iPad sets reflect the final 1.2 interface and were uploaded to App Store Connect on September 11, 2026.
 
-The configured U.S. base price is **$19 as a one-time purchase**. App Store Connect generates the localized storefront prices from that base price. The existing app record is Apple ID `6808849656`; its public URL will be `https://apps.apple.com/app/id6808849656` after Apple publishes the listing.
+The configured U.S. base price is **$19 as a one-time purchase**. App Store Connect generates the localized storefront prices from that base price. The app is live at [apps.apple.com/us/app/paperdrawer/id6808849656](https://apps.apple.com/us/app/paperdrawer/id6808849656).
 
 ## Screenshot sets
 
@@ -11,7 +11,6 @@ Upload the numbered files in order. Every image is a JPEG without transparency a
 | Folder | Resolution | App Store Connect use |
 | --- | --- | --- |
 | `assets/screenshots/iphone-6.9/` | 1320 × 2868 portrait | Final set for the current 6.9-inch iPhone display slot |
-| `assets/screenshots/iphone-6.5/` | 1284 × 2778 portrait | Legacy reference set; do not upload because App Store Connect can scale the supplied 6.9-inch set |
 | `assets/screenshots/ipad-13/` | 2064 × 2752 portrait | Final set for the required 13-inch iPad display slot |
 
 The six screenshots cover:

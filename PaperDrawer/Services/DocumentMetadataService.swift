@@ -75,7 +75,7 @@ enum DocumentMetadataService {
             let response = try await session.respond(
                 to: prompt(with: context),
                 generating: GeneratedDocumentMetadata.self,
-                options: GenerationOptions(sampling: .greedy, temperature: 0.0, maximumResponseTokens: 320)
+                options: GenerationOptions(samplingMode: .greedy, temperature: 0.0, maximumResponseTokens: 320)
             )
 
             return cleanedMetadata(from: response.content, fallback: fallback)

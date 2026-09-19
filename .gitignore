@@ -13,3 +13,16 @@ DerivedData/
 .build/
 .swiftpm/
 dist/
+*.xcarchive
+*.xcresult
+*.dSYM
+*.dSYM.zip
+*.ipa
+
+# Signing and local configuration
+*.cer
+*.mobileprovision
+*.p12
+*.provisionprofile
+.env
+.env.*
