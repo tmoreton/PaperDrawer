@@ -2,7 +2,7 @@
 
 This folder contains the English (U.S.) product-page copy and final simulator screenshots for PaperDrawer 1.2. The 6.9-inch iPhone and 13-inch iPad sets reflect the final 1.2 interface and were uploaded to App Store Connect on September 11, 2026.
 
-The configured U.S. base price is **$19 as a one-time purchase**. App Store Connect generates the localized storefront prices from that base price. The app is live at [apps.apple.com/us/app/paperdrawer/id6808849656](https://apps.apple.com/us/app/paperdrawer/id6808849656).
+The configured U.S. base price is **$29 as a one-time purchase**. App Store Connect generates the localized storefront prices from that base price. The app is live at [apps.apple.com/us/app/paperdrawer/id6808849656](https://apps.apple.com/us/app/paperdrawer/id6808849656).
 
 ## Screenshot sets
 
