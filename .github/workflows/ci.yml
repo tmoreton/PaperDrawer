@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ios-app:
+    name: iOS app (${{ matrix.configuration }})
+    runs-on: macos-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        configuration: [Debug, Release]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Validate repository configuration
+        run: |
+          plutil -lint \
+            PaperDrawer-Info.plist \
+            PaperDrawer/PaperDrawer.entitlements \
+            PaperDrawer/PrivacyInfo.xcprivacy \
+            app-store/ExportOptions.plist
+          sh -n \
+            scripts/build_app_store_release.sh \
+            scripts/capture_app_store_screenshots.sh
+
+      - name: Build unsigned simulator app
+        run: |
+          xcodebuild -quiet \
+            -project PaperDrawer.xcodeproj \
+            -scheme PaperDrawer \
+            -configuration "${{ matrix.configuration }}" \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/PaperDrawer-${{ matrix.configuration }}" \
+            CODE_SIGNING_ALLOWED=NO \
+            clean build
+
+      - name: Static analysis
+        if: matrix.configuration == 'Release'
+        run: |
+          xcodebuild -quiet \
+            -project PaperDrawer.xcodeproj \
+            -scheme PaperDrawer \
+            -configuration Release \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath "$RUNNER_TEMP/PaperDrawer-Analyze" \
+            CODE_SIGNING_ALLOWED=NO \
+            analyze
+
+  ios-app-required:
+    name: iOS app
+    if: ${{ always() }}
+    needs: ios-app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm all iOS checks passed
+        run: test "${{ needs.ios-app.result }}" = success

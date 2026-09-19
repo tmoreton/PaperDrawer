@@ -97,6 +97,12 @@ scripts/build_app_store_release.sh
 
 The script lets Xcode refresh managed provisioning profiles, writes only to the ignored `.build/` directory, and does not upload or submit the app.
 
+## Automation
+
+GitHub Actions builds Debug and Release configurations, runs Xcode static analysis, and scans Swift with CodeQL before changes can merge to `main`. A weekly release-readiness run produces a short-lived unsigned simulator artifact, while Dependabot prepares grouped GitHub Actions updates.
+
+Signed App Store archives remain local to the trusted release Mac. Version tags create source-only GitHub releases and never attach the paid production binary. See [RELEASE_SCHEDULE.md](RELEASE_SCHEDULE.md) for the cadence and release checklist.
+
 ## Project structure
 
 ```text
