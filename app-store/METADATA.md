@@ -12,7 +12,7 @@
 - **Website Terms URL (linked inside the app):** https://getpaperdrawer.com/terms/
 - **App Store ID:** 6808849656
 - **Public App Store URL:** https://apps.apple.com/us/app/paperdrawer/id6808849656
-- **Configured U.S. base price:** $19, one-time purchase
+- **Configured U.S. base price:** $29, one-time purchase
 - **App Store License Agreement:** Apple Standard EULA; do not enter a custom EULA in App Store Connect
 - **Copyright:** 2026 Tim Moreton Jr.
 

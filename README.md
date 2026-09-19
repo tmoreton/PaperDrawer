@@ -87,7 +87,7 @@ PaperDrawer is available as a one-time App Store purchase. It requires no PaperD
 
 The source remains publicly inspectable and developers may build it under the repository license. Official App Store builds provide the signed production binary, the PaperDrawer branding, automatic App Store updates, and official support. Future GitHub releases must not attach the same signed production binary distributed through the App Store; source archives or clearly identified development artifacts may remain available.
 
-[Download PaperDrawer from the App Store](https://apps.apple.com/us/app/paperdrawer/id6808849656). The configured U.S. price is **$19 as a one-time purchase**; the App Store determines comparable prices in other storefronts.
+[Download PaperDrawer from the App Store](https://apps.apple.com/us/app/paperdrawer/id6808849656). The configured U.S. price is **$29 as a one-time purchase**; the App Store determines comparable prices in other storefronts.
 
 Create the archive and exported release with:
 
